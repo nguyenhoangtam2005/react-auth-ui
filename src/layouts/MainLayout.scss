@@ -1,0 +1,31 @@
+.layout {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.layout-header {
+  height: 64px;
+  border-bottom: 1px solid #e5e7eb;
+  display: flex;
+  align-items: center;
+  padding: 0 24px;
+  background: #ffffff;
+}
+
+.layout-body {
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  min-height: calc(100vh - 64px);
+}
+
+.layout-sidebar {
+  border-right: 1px solid #e5e7eb;
+  background: #f7f9fc;
+  padding: 16px;
+}
+
+.layout-content {
+  padding: 24px;
+  background: #ffffff;
+}
