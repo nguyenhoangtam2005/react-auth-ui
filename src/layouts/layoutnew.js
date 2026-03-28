@@ -44,7 +44,7 @@ const App = () => {
             <Inputsearch> </Inputsearch >
             <Avatar></Avatar>
         </Header>
-        <div className='breadcrumb'>
+        <div className='breadcrumb' style={{margin: '12px 0px 0px 20px'}}>
                <Breadcrumb
       items={[
         {
@@ -62,7 +62,7 @@ const App = () => {
       ]}
     />
         </div>
-        <Content style={{ margin: '24px 16px 0' }}>
+        <Content style={{ margin: '12px 16px 0' }}>
             <div className="body_content">
                 <Card> </Card>
                 <CardMain></CardMain>
