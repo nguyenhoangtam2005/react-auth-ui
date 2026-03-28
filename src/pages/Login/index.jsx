@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './Login.scss';
+import { Button, Flex } from 'antd';
 
 function Login() {
   const [formData, setFormData] = useState({ username: '', password: '' });
@@ -9,6 +10,10 @@ function Login() {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
+
+  function Eventbtn() {
+    alert('ban da click btn')
+  }
 
   const validate = () => {
     const validation = {};
