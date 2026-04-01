@@ -1,10 +1,11 @@
 import React from 'react';
-import Layout from '../../my-app/src/components/../layouts/layoutnew'
+import Home from './pages/Home/index'
+import Customers from './pages/Customers/customers'
 
 const App = () => {
   return (
     <div>
-    <Layout> </Layout>
+      <Customers></Customers>
     </div>
   );
 };
