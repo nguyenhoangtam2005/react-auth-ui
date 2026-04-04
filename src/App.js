@@ -1,11 +1,12 @@
 import React from 'react';
-import Home from './pages/Home/index'
-import Customers from './pages/Customers/customers'
+import Dashboard from './pages/Dashboard';
+import Login from './pages/Login/index'
+import Users from './pages/Call Management';
 
 const App = () => {
   return (
     <div>
-      <Customers></Customers>
+      <Dashboard />
     </div>
   );
 };

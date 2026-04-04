@@ -1,5 +1,6 @@
 import React from 'react';
 import { Table, Tooltip } from 'antd';
+import InputSearch from '../InputSearch/InputSearch';
 const columns = [
   {
     title: 'Name',
@@ -35,7 +36,7 @@ const columns = [
       showTitle: false,
     },
     render: address => (
-      <Tooltip placement="topLeft" title={address}>
+            <Tooltip placement="topLeft" title={address}>
         {address}
       </Tooltip>
     ),

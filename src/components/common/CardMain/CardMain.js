@@ -1,6 +1,6 @@
 import React from 'react';
 import { Card, Row, Col } from 'antd';
-import './card.css';
+import './CardMain.css';
 
 const CardMain = () => {
   const cards = [
@@ -19,8 +19,8 @@ const CardMain = () => {
       total: 80,
       label: 'Members',
       bars: [
-        { label: 'Hoạt động', value: 40, color: '#30C64B' },
-        { label: 'Tạm dừng', value: 40, color: '#FA8C16' },
+        { label: 'Hoạt động', value: 40, color: '#ffffff' },
+        { label: 'Tạm dừng', value: 40, color: '#ffffff' },
       ],
     },
   ];

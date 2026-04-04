@@ -1,15 +1,14 @@
 import React from 'react';
-import { UploadOutlined, UserOutlined, VideoCameraOutlined } from '@ant-design/icons';
+import { UploadOutlined, UserOutlined, VideoCameraOutlined, AudioOutlined } from '@ant-design/icons';
 import { Flex, Layout, Menu, theme } from 'antd';
 import { Breadcrumb } from 'antd';
-import './layoutnew.css';
-import Inputsearch from '../components/InputSearch/InputSearch'
-import { AudioOutlined } from '@ant-design/icons';
-import Card from '../components/Card/Card';
-import CardMain from '../components/card_main/card';
-import Table from '../components/table_home/table'
-import Inputfilter from '../components/Input_fillter/input';
-import Avatar from '../components/Avatar/avatar';
+import './DashboardLayout.css';
+import Inputsearch from '../common/InputSearch/InputSearch';
+import Card from '../common/Card/Card';
+import CardMain from '../common/CardMain/CardMain';
+import Table from '../common/DataTable/DataTable';
+import Inputfilter from '../common/FilterInput/FilterInput';
+import Avatar from '../common/Avatar/avatar';
 const suffix = <AudioOutlined style={{ fontSize: 16, color: '#1677ff' }} />;
 const onSearch = (value, _e, info) => console.log(info?.source, value);
 const { Header, Content, Footer, Sider } = Layout;

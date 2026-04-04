@@ -1,0 +1,42 @@
+/* EmployeeTable.css */
+.employee-table-card {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    width:2400px;
+    height: 548px;
+    overflow-x: auto;
+}
+
+
+
+.employee-table-card .ant-card-head {
+    border-bottom: 2px solid #f0f0f0;
+}
+
+.employee-table-card .ant-card-head-title {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.employee-table-card .ant-table-thead>tr>th {
+    background-color: #fafafa;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.employee-table-card .ant-table-tbody>tr:hover>td {
+    background-color: #f5f5f5;
+    overflow-x: auto;
+}
+
+.employee-table-card .ant-btn-link {
+    padding: 4px 8px;
+    overflow-x: auto;
+}
+
+.employee-table-card .ant-tag {
+    border-radius: 12px;
+    padding: 2px 12px;
+    font-weight: 500;
+    overflow-x: auto;
+}

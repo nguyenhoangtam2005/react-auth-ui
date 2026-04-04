@@ -2,9 +2,18 @@
     margin-top: 20px;
 }
 
-.card_container {
-    background-color: aqua;
+.inputseach_FillterInput{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 18px;
+
 }
+
+.container_call {
+    background-color: rgb(255, 255, 255);
+}
+
 
 .body_content {
     background: var(--white, #FFF);
@@ -14,7 +23,28 @@
     flex-direction: column;
     align-items: flex-start;
     gap: 20px;
+    
 
+}
+
+.container_call {
+    display: flex;
+    margin: 0px;
+    gap: 18px;
+    padding: 0px 20px 20px 20px;
+    
+
+}
+
+@media (max-width: 768px) {
+    .container_call {
+        flex-direction: column;
+        /* Chuyển từ ngang sang dọc */
+        gap: 20px;
+        /* Tăng khoảng cách giữa 2 phần khi dọc */
+        padding: 0px 15px;
+        /* Giảm padding cho mobile */
+    }
 }
 
 .tablehome {

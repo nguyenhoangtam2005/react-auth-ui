@@ -1,18 +1,21 @@
 import React from 'react';
-import { UploadOutlined, UserOutlined, VideoCameraOutlined } from '@ant-design/icons';
-import { Flex, Layout, Menu, theme } from 'antd';
+import { Layout, Menu, theme } from 'antd';
+import {
+  UserOutlined,
+  VideoCameraOutlined,
+  UploadOutlined
+} from '@ant-design/icons';
+
 import { Breadcrumb } from 'antd';
-import './layoutnew.css';
-import Inputsearch from '../components/InputSearch/InputSearch'
-import { AudioOutlined } from '@ant-design/icons';
-import Card from '../components/Card/Card';
-import CardMain from '../components/card_main/card';
-import Table from '../components/table_home/table'
-import Inputfilter from '../components/Input_fillter/input';
-import Avatar from '../components/Avatar/avatar';
-import StatisticsCards from '../components/StatisticsCards/StatisticsCards';
-const suffix = <AudioOutlined style={{ fontSize: 16, color: '#1677ff' }} />;
-const onSearch = (value, _e, info) => console.log(info?.source, value);
+import './UsersLayout.css';
+import Inputsearch from '../common/InputSearch/InputSearch';
+import FillterInput from '../common/FilterInput/FilterInput';
+import Tabs from '../common/Tabs/tabs'
+import Avatar from '../common/Avatar/avatar';
+import StatisticsCards from '../common/StatisticsCards/StatisticsCards';
+import CallPad from '../common/CallPad/CallPad';
+import EmployeeTable from '../common/EmployeeTable/EmployeeTable';
+import CallHistoryItem from '../common//CallHistoryItem/CallHistoryItem';
 const { Header, Content, Footer, Sider } = Layout;
 const items = [UserOutlined, VideoCameraOutlined, UploadOutlined, UserOutlined].map(
   (icon, index) => ({
@@ -22,9 +25,6 @@ const items = [UserOutlined, VideoCameraOutlined, UploadOutlined, UserOutlined].
   }),
 );
 const App = () => {
-  const {
-    token: { colorBgContainer, borderRadiusLG },
-  } = theme.useToken();
   return (
     <Layout>
       <Sider
@@ -68,7 +68,20 @@ const App = () => {
             <div>
                 <div className="card_container">
                   <StatisticsCards ></StatisticsCards >
+                  <div className="container_call">
+                    <CallPad></CallPad>
+                    <EmployeeTable></EmployeeTable>
+                  </div>
                 </div>
+                  <div className="tablehome">
+                    <h1 className='title_tablecalltoday'>Cuộc gọi hôm nay</h1>
+                    <div className="inputseach_FillterInput">
+                       <Inputsearch></Inputsearch>
+                       <FillterInput></FillterInput>
+                    </div>
+                    <Tabs></Tabs>
+                    <CallHistoryItem></CallHistoryItem>
+                  </div>
             </div>
          </div>
         </Content>
