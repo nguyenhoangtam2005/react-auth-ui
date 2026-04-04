@@ -6,7 +6,7 @@ import Users from './pages/CallManagement';
 const App = () => {
   return (
     <div>
-      <Dashboard />
+      <Users />
     </div>
   );
 };
