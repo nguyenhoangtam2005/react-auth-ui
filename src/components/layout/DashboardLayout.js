@@ -9,6 +9,7 @@ import CardMain from '../common/CardMain/CardMain';
 import Table from '../common/DataTable/DataTable';
 import Inputfilter from '../common/FilterInput/FilterInput';
 import Avatar from '../common/Avatar/avatar';
+import CallAnswerRate from '../common/CallAnswerRate/CallAnswerRate';
 const suffix = <AudioOutlined style={{ fontSize: 16, color: '#1677ff' }} />;
 const onSearch = (value, _e, info) => console.log(info?.source, value);
 const { Header, Content, Footer, Sider } = Layout;

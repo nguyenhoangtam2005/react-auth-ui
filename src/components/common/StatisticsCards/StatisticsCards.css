@@ -1,9 +1,7 @@
 ﻿.stats-container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
-    padding: 20px;
-    max-width: 1200px;
+    gap: 0px;
     margin: 0 auto;
 }
 
@@ -13,8 +11,6 @@
 }
 
 .stat-card {
-    position: relative;
-    overflow: hidden;
     background: white;
     background-size: cover;
     background-position: center;

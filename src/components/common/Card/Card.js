@@ -1,4 +1,3 @@
-import './Card.css';
 import React from 'react';
 import { Card, Row, Col } from 'antd';
 import {
@@ -9,6 +8,7 @@ import {
   ArrowUpOutlined,
 } from '@ant-design/icons';
 import './Card.css';
+import CallAnswerRate from '../CallAnswerRate/CallAnswerRate';
 
 const CallStatsCard = () => {
   const stats = [
@@ -42,7 +42,7 @@ const CallStatsCard = () => {
     <div className="call-stats-container">
       <Row gutter={[16, 16]}>
         {stats.map((stat, index) => (
-          <Col xs={24} md={8} key={index}>
+          <Col xs={24} md={6} key={index}>
             <Card
               className="stat-card gradient"
               hoverable
@@ -69,6 +69,9 @@ const CallStatsCard = () => {
             </Card>
           </Col>
         ))}
+        <Col xs={24} md={6}>
+          <CallAnswerRate />
+        </Col>
       </Row>
     </div>
   );
