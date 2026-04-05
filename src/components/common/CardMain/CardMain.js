@@ -19,8 +19,9 @@ const CardMain = () => {
       total: 80,
       label: 'Members',
       bars: [
-        { label: 'Hoạt động', value: 40, color: '#ffffff' },
-        { label: 'Tạm dừng', value: 40, color: '#ffffff' },
+        // Hiển thị thanh màu xanh cho trạng thái hoạt động và đỏ cho tạm dừng
+        { label: 'Hoạt động', value: 40, color: '#30C64B' },
+        { label: 'Tạm dừng', value: 40, color: '#EB3C3C' },
       ],
     },
   ];
