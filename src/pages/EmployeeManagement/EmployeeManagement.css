@@ -1,0 +1,13 @@
+.inputserach_btn_fillter {
+    display: flex;
+}
+
+.fillterbtn {
+    gap: 20px;
+}
+
+.inputserach_btn_fillter {
+    margin-right: 20px;
+    margin-left: auto;
+    float: right;
+}

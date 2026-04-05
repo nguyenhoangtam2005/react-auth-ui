@@ -5,6 +5,7 @@
   border: none;
   cursor: pointer;
   transition: all 0.15s ease;
+  margin-left: 20px;
 }
 
 .btn-primary {

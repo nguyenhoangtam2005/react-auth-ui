@@ -2,6 +2,12 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Layout structure
+
+- Common shell lives in `src/components/layout/MainLayout.jsx` with shared sidebar, header, breadcrumb and content outlet.
+- Pages under `src/pages/` import `MainLayout` and place their page-specific JSX as children (e.g. `<MainLayout><DashboardContent /></MainLayout>`).
+- Legacy per-page layouts (`DashboardLayout`, `UsersLayout`, `layout_customer`) and their CSS were removed to avoid duplication.
+
 ## Available Scripts
 
 In the project directory, you can run:

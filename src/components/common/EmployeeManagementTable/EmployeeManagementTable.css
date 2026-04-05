@@ -1,0 +1,91 @@
+.EmployeeManagement_Table {
+    width: 100%;
+}
+
+/* Table tổng */
+.ant-table {
+    background: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+/* Header */
+.ant-table-thead>tr>th {
+    background: #f9fafb;
+    font-weight: 600;
+    color: #333;
+}
+
+/* Row */
+.ant-table-tbody>tr>td {
+    padding: 16px;
+}
+
+/* Hover row */
+.ant-table-tbody>tr:hover>td {
+    background: #f5f7fa;
+}
+
+/* ===== TAG ===== */
+.tag-admin {
+    background: #e6f4ff;
+    color: #1677ff;
+    border: none;
+    border-radius: 8px;
+    padding: 4px 10px;
+}
+
+.tag-agent {
+    background: #f6ffed;
+    color: #52c41a;
+    border: none;
+    border-radius: 8px;
+    padding: 4px 10px;
+}
+
+.tag-code {
+    background: #fff7e6;
+    color: #fa8c16;
+    border: none;
+    border-radius: 8px;
+    padding: 4px 10px;
+}
+
+.tag-active {
+    background: #f6ffed;
+    color: #52c41a;
+    border: none;
+    border-radius: 8px;
+}
+
+.tag-stop {
+    background: #fff1f0;
+    color: #ff4d4f;
+    border: none;
+    border-radius: 8px;
+}
+
+/* ===== ICON ===== */
+.icon {
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+/* từng loại icon */
+.icon.view {
+    color: #1677ff;
+}
+
+.icon.edit {
+    color: #faad14;
+}
+
+.icon.delete {
+    color: #ff4d4f;
+}
+
+/* hover effect */
+.icon:hover {
+    transform: scale(1.2);
+}
