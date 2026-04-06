@@ -39,7 +39,7 @@ const MainLayout = ({ children, breadcrumbItems = defaultBreadcrumb }) => {
       </Sider>
       <Layout>
         <Header className="layout-header">
-          <Inputsearch />
+          {/* <Inputsearch /> */}
           <Avatar />
         </Header>
 

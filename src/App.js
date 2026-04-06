@@ -5,11 +5,12 @@ import Dashboard from './pages/Dashboard';
 // import MainLayout from './components/layout/MainLayout';
 // import Customer from './pages/Customer/index'
 // import EmployeeManagement from './pages/EmployeeManagement/index'
+// import QueueManagementPage from './pages/QueueManagementPage/QueueManagementPage';
 
 const App = () => {
   return (
     <div>
-      <Dashboard />
+      <Dashboard/>
     </div>
   );
 };
