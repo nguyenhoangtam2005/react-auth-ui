@@ -2,3 +2,10 @@
     margin-left: 0px;
     margin-bottom: 16px;
 }
+
+.ant-space-item {
+    height: fit-content;
+    margin-bottom: 0px;
+    padding: 0px;
+
+}

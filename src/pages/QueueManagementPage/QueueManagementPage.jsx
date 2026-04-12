@@ -10,8 +10,8 @@ import Dropsdown from '../../components/common/Dropdown/dropdown'
 function Customer() {
   return (
    <MainLayout>
+    <h1 className='Title_callManagement'>Hàng chờ</h1>
    <div className="body_content">
-         <h1 className='Title_callManagement'>Hàng chờ</h1>
      <div className='container'>
        <div className='Input_search'>
          <Inputsearch />
