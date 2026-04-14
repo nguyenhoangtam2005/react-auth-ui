@@ -1,9 +1,25 @@
 .login-container {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   min-height: 100vh;
+  padding-left: 8vw;
+  padding-right: 8vw;
   background: #f6f8fb;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.Title_logo {
+  margin: auto;
+  text-align: center;
+  color: #1677FF;
+  font-size: 28px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 22px;
+    /* 78.571% */
 }
 
 h2 {
@@ -24,6 +40,13 @@ h2 {
   margin-right: 12px;
 }
 
+@media (max-width: 768px) {
+  .login-container {
+    justify-content: center;
+    padding: 24px;
+  }
+}
+
 .login-field {
   display: flex;
   flex-direction: column;
@@ -34,7 +57,7 @@ h2 {
 
 .login-field input {
   padding: 10px 12px;
-  border: 1px solid #cdd5e0;
+  border: 1px solid #DEE4ED;
   border-radius: 8px;
   font-size: 14px;
 }

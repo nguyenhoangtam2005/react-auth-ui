@@ -1,24 +1,28 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './Login.scss';
-import { Button, Flex } from 'antd';
+
+const backgroundImg = '/static/Background_Login.png';
+const DEMO_EMAIL = 'Hoangtam@gmail.com';
+const DEMO_PASSWORD = 'Tam2005@';
 
 function Login() {
-  const [formData, setFormData] = useState({ username: '', password: '' });
+  const navigate = useNavigate();
+  const [formData, setFormData] = useState({ email: DEMO_EMAIL, password: DEMO_PASSWORD });
   const [errors, setErrors] = useState({});
+  const [loading, setLoading] = useState(false);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
+    if (errors[name]) setErrors((prev) => ({ ...prev, [name]: '' }));
   };
-
-  function Eventbtn() {
-    alert('ban da click btn')
-  }
 
   const validate = () => {
     const validation = {};
-    if (!formData.username) validation.username = 'Username không được để trống';
-    if (!formData.password) validation.password = 'Password không được để trống';
+    if (!formData.email) validation.email = 'Email không được để trống';
+    else if (!/\S+@\S+\.\S+/.test(formData.email)) validation.email = 'Email không hợp lệ';
+    if (!formData.password) validation.password = 'Mật khẩu không được để trống';
     return validation;
   };
 
@@ -30,42 +34,38 @@ function Login() {
       return;
     }
     setErrors({});
-    console.log('Dữ liệu login:', formData);
-    try {
-      const response = await fetch('/api/login', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formData),
-      });
+    setLoading(true);
 
-      if (!response.ok) {
-        const errorPayload = await response.json().catch(() => ({}));
-        setErrors({ form: errorPayload.message || 'Login failed. Please try again.' });
-        return;
-      }
+    if (formData.email === DEMO_EMAIL && formData.password === DEMO_PASSWORD) {
+      const mockUser = { email: formData.email, name: 'Call Center User' };
+      const mockToken = 'demo-token';
 
-      const data = await response.json().catch(() => null);
-      console.log('Login success:', data);
-    } catch (err) {
-      console.error('Login request error:', err);
-      setErrors({ form: 'Network error. Please try again.' });
+      localStorage.setItem('token', mockToken);
+      localStorage.setItem('user', JSON.stringify(mockUser));
+      navigate('/Dashboard');
+    } else {
+      setErrors({ form: 'Email hoặc mật khẩu chưa đúng' });
     }
+
+    setLoading(false);
   };
 
   return (
-    <div className="login-container">
+    <div className="login-container" style={{ backgroundImage: `url('${backgroundImg}')` }}>
       <form className="login-form" onSubmit={handleSubmit}>
+        <h1 className="Title_logo">Call Center</h1>
         <h2>Login</h2>
 
         <label className="login-field">
-          <span>Username</span>
+          <span>Email</span>
           <input
-            type="text"
-            name="username"
-            value={formData.username}
+            type="email"
+            name="email"
+            value={formData.email}
             onChange={handleChange}
+            disabled={loading}
           />
-          {errors.username && <p className="login-error">{errors.username}</p>}
+          {errors.email && <p className="login-error">{errors.email}</p>}
         </label>
 
         <label className="login-field">
@@ -75,11 +75,14 @@ function Login() {
             name="password"
             value={formData.password}
             onChange={handleChange}
+            disabled={loading}
           />
           {errors.password && <p className="login-error">{errors.password}</p>}
         </label>
 
-        <button type="submit" className="login-submit">Login</button>
+        <button type="submit" className="login-submit" disabled={loading}>
+          {loading ? 'Đang xử lý...' : 'Login'}
+        </button>
         {errors.form && <p className="login-error">{errors.form}</p>}
       </form>
     </div>
