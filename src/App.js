@@ -7,6 +7,10 @@ import CallManagement from './pages/CallManagement';
 import Customer from './pages/Customer/index';
 import EmployeeManagement from './pages/EmployeeManagement/index';
 import QueueManagementPage from './pages/QueueManagementPage/QueueManagementPage';
+import MeetingRoom from './pages/MeetingRoom/MeetingRoom';
+import MachineBranch from './pages/MachineBranch/MachineBranch';
+import CallHistory from './pages/CallHistory/CallHistory';
+
 
 const App = () => {
   return (
@@ -19,6 +23,9 @@ const App = () => {
         <Route path="/customers" element={<Customer />} />
         <Route path="/employees" element={<EmployeeManagement />} />
         <Route path="/queue" element={<QueueManagementPage />} />
+        <Route path="/MeetingRoom" element={<MeetingRoom />} />
+        <Route path="/MachineBranch" element={<MachineBranch />} />
+        <Route path="/CallHistory" element={<CallHistory />} />
       </Routes>
     </BrowserRouter>
   );

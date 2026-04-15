@@ -1,0 +1,9 @@
+.search_filtermenu {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.Dropsdown {
+    display: flex;
+}
