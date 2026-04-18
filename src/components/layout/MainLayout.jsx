@@ -1,5 +1,6 @@
 import React from 'react';
 import { Layout, Menu, Breadcrumb } from 'antd';
+import { useNavigate, useLocation } from 'react-router-dom';
 import {
   DashboardOutlined,
   TeamOutlined,
@@ -40,7 +41,14 @@ const defaultBreadcrumb = [
 
 
 
+
 const MainLayout = ({ children, breadcrumbItems = defaultBreadcrumb }) => {
+  const handleMenuClick = ({ key }) => {
+    navigate(key);   // key chính là đường dẫn (VD: '/customers')
+  };
+
+  const navigate = useNavigate();
+  const location = useLocation();
   return (
     <Layout className="main-layout">
       <Sider breakpoint="lg" collapsedWidth="0">
@@ -51,8 +59,9 @@ const MainLayout = ({ children, breadcrumbItems = defaultBreadcrumb }) => {
         <Menu
           theme="dark"
           mode="inline"
-          defaultSelectedKeys={['dashboard']}  // ✅ Sửa lại cho khớp key thực tế
+          selectedKeys={[location.pathname]}  // ✅ highlight đúng trang hiện tại
           items={menuItems}
+          onClick={handleMenuClick}           // ✅ gắn sự kiện điều hướng
         />
       </Sider>
       <Layout>

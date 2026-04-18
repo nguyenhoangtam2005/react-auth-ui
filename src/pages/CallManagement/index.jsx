@@ -1,5 +1,4 @@
 import React from 'react';
-import MainLayout from '../../components/layout/MainLayout';
 import Inputsearch from '../../components/common/InputSearch/InputSearch';
 import FillterInput from '../../components/common/FilterInput/FilterInput';
 import Tabs from '../../components/common/Tabs/tabs';
@@ -12,7 +11,7 @@ import './Users.css';
 
 function Users() {
   return (
-    <MainLayout>
+    <div>
       <div className="body_content">
         <div className="card_container">
           <StatisticsCards />
@@ -31,7 +30,7 @@ function Users() {
           <CallHistoryItem />
         </div>
       </div>
-    </MainLayout>
+    </div>
   );
 }
 

@@ -1,5 +1,4 @@
 import React from 'react';
-import MainLayout from '../../components/layout/MainLayout';
 import Inputsearch from '../../components/common/InputSearch/InputSearch';
 import Card from '../../components/common/Card/Card';
 import CardMain from '../../components/common/CardMain/CardMain';
@@ -10,10 +9,10 @@ import '../../components/layout/MainLayout.css';
 
 function Dashboard() {
   return (
-    <MainLayout>
+    <div>
       <div className="body_content">
         <Card />
-        <CardMain />
+         <CardMain />
       </div>
       <div className="tablehome">
         <h1 className="title_table">Cuộc gọi hôm nay</h1>
@@ -23,7 +22,7 @@ function Dashboard() {
         </div>
         <Table />
       </div>
-    </MainLayout>
+    </div>
   );
 }
 

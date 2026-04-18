@@ -8,3 +8,11 @@
 
 
 }
+
+.Title_callManagement {
+margin-bottom: 16px;
+font-size: var(--font-size-xl, 20px);
+font-style: normal;
+font-weight: 500;
+line-height: 28px;
+}

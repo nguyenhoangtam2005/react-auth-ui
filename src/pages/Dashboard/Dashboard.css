@@ -11,3 +11,12 @@
   border-radius: 10px;
   background: #f8fafc;
 }
+
+card_main {
+margin-top: 20px;
+width: 100%;
+}
+
+.summary-grid {
+  width: 100%;
+}

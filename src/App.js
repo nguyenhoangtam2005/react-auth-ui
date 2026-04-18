@@ -1,34 +1,74 @@
-import React from 'react';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-
+import MainLayout from './components/layout/MainLayout'; 
 import Dashboard from './pages/Dashboard';
 import Login from './pages/Login/index';
 import CallManagement from './pages/CallManagement';
 import Customer from './pages/Customer/index';
 import EmployeeManagement from './pages/EmployeeManagement/index';
-import QueueManagementPage from './pages/QueueManagementPage/QueueManagementPage';
-import MeetingRoom from './pages/MeetingRoom/MeetingRoom';
 import MachineBranch from './pages/MachineBranch/MachineBranch';
 import CallHistory from './pages/CallHistory/CallHistory';
+import QueueManagementPage from './pages/QueueManagementPage/QueueManagementPage';
+import MeetingRoom from './pages/MeetingRoom/MeetingRoom';
 
-
-const App = () => {
+function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Login />} />
-        <Route path="/Dashboard" element={<Dashboard />} />
+        {/* Các route không có sidebar (login) */}
         <Route path="/login" element={<Login />} />
-        <Route path="/calls" element={<CallManagement />} />
-        <Route path="/customers" element={<Customer />} />
-        <Route path="/employees" element={<EmployeeManagement />} />
-        <Route path="/queue" element={<QueueManagementPage />} />
-        <Route path="/MeetingRoom" element={<MeetingRoom />} />
-        <Route path="/MachineBranch" element={<MachineBranch />} />
-        <Route path="/CallHistory" element={<CallHistory />} />
+        <Route path="/" element={<Login />} />
+
+        {/* Các route có sidebar - bọc trong MainLayout */}
+        <Route path="/Dashboard" element={
+          <MainLayout>
+            <Dashboard />
+          </MainLayout>
+        } />
+        
+        <Route path="/calls" element={
+          <MainLayout>
+            <CallManagement />
+          </MainLayout>
+        } />
+        
+        <Route path="/customers" element={
+          <MainLayout>
+            <Customer />
+          </MainLayout>
+        } />
+        
+        <Route path="/employees" element={
+          <MainLayout>
+            <EmployeeManagement />
+          </MainLayout>
+        } />
+        
+        <Route path="/MachineBranch" element={
+          <MainLayout>
+            <MachineBranch />
+          </MainLayout>
+        } />
+        
+        <Route path="/CallHistory" element={
+          <MainLayout>
+            <CallHistory />
+          </MainLayout>
+        } />
+        
+        <Route path="/queue" element={
+          <MainLayout>
+            <QueueManagementPage />
+          </MainLayout>
+        } />
+        
+        <Route path="/MeetingRoom" element={
+          <MainLayout>
+            <MeetingRoom />
+          </MainLayout>
+        } />
       </Routes>
     </BrowserRouter>
   );
-};
+}
 
 export default App;

@@ -1,6 +1,5 @@
 import React from 'react';
 import './MachineBranch.css';
-import MainLayout from '../../components/layout/MainLayout';
 import TableMachineBranch from '../../components/common/TableMachineBranch/TableMachineBranch';
 import Inputsearch from '../../components/common/InputSearch/InputSearch';
 import Dropsdown from '../../components/common/Dropdown/dropdown';
@@ -8,7 +7,7 @@ import Tabs from '../../components/common/Tabs/tabs';
 
 function MachineBranch() {
   return (
-    <MainLayout>
+    <div>
       <h1>Nhánh máy</h1>
       <div className="body_content">
        <div className='search_filtermenu'>
@@ -23,7 +22,7 @@ function MachineBranch() {
       </div>
         <TableMachineBranch></TableMachineBranch>
       </div>
-    </MainLayout>
+    </div>
   );
 }
 
