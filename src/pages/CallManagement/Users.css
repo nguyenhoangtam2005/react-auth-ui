@@ -4,8 +4,13 @@
   gap: 18px;
   width: 100%;
   box-sizing: border-box;
+  padding: 0px;
 }
 
 .body_content {
   width: 100%;
+}
+
+.stats-container {
+  padding: 0px;
 }

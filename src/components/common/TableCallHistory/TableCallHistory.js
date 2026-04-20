@@ -119,7 +119,7 @@ export default function CallTable() {
       : data.filter((item) => item.status === activeTab);
 
   return (
-    <div style={{ padding: 20, width: '100%' }}>
+    <div style={{width: '100%' }}>
       <Tabs defaultActiveKey="all" onChange={setActiveTab}>
         <TabPane tab="Tất cả (40)" key="all" />
         <TabPane tab="Hoàn thành (10)" key="Hoàn thành" />

@@ -8,7 +8,7 @@ import Tabs from '../../components/common/Tabs/tabs';
 function CallHistory() {
   return (
     <div>
-      <h1>Nhánh máy</h1>
+      <h1>Lịch sử cuộc gọi</h1>
       <div className="body_content">
        <div className='search_filtermenu'>
         <Inputsearch></Inputsearch>

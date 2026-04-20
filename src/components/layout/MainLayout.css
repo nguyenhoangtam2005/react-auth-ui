@@ -33,8 +33,8 @@
   background-color: #FFF;
   border-radius: 8px;
   margin-top: 24px;
-  padding: 20px;
   width: 100%;
+  padding: 20px;
   box-sizing: border-box;
 }
 
@@ -51,14 +51,14 @@
   display: flex;
   justify-content: space-between;
   width: 100%;
-  margin-bottom: 18px;
+  margin-bottom: 8px;
 }
 
 .container_call {
   display: flex;
   margin: 0;
   gap: 18px;
-  padding: 0 20px 20px 20px;
+  padding: 0 0px 20px 0px;
   background-color: #fff;
   width: 100%;
   box-sizing: border-box;

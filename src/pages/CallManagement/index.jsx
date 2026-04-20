@@ -13,6 +13,7 @@ function Users() {
   return (
     <div>
       <div className="body_content">
+        <h1>Call Center</h1>
         <div className="card_container">
           <StatisticsCards />
           <div className="container_call">

@@ -11,6 +11,7 @@ function Dashboard() {
   return (
     <div>
       <div className="body_content">
+        <h1>Dashboard giám sát</h1>
         <Card />
          <CardMain />
       </div>

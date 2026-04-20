@@ -5,7 +5,7 @@ import Inputsearch from '../../components/common/InputSearch/InputSearch';
 function Meeting() {
   return (
     <div>
-      <h1>Phòng hợp</h1>
+      <h1>Phòng họp</h1>
       <div className="body_content">
       <Inputsearch></Inputsearch>
       <MeetingRoom></MeetingRoom>

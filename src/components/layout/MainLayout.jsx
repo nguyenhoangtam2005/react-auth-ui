@@ -28,8 +28,6 @@ const menuItems = [
   { key: '/CallHistory', icon: <HistoryOutlined />, label: 'Lịch sử cuộc gọi' },
   { key: '/queue', icon: <ClockCircleOutlined />, label: 'Hàng chờ' },
   { key: '/MeetingRoom', icon: <VideoCameraOutlined />, label: 'Phòng họp' },
-  // Nếu bạn có trang Danh bạ, hãy thêm route trong App.js trước
-  // { key: '/contacts', icon: <ContactsOutlined />, label: 'Danh bạ' },
 ];
 
 const defaultBreadcrumb = [
@@ -38,8 +36,6 @@ const defaultBreadcrumb = [
   { title: <a href="">Application List</a> },
   { title: 'An Application' },
 ];
-
-
 
 
 const MainLayout = ({ children, breadcrumbItems = defaultBreadcrumb }) => {
@@ -59,9 +55,9 @@ const MainLayout = ({ children, breadcrumbItems = defaultBreadcrumb }) => {
         <Menu
           theme="dark"
           mode="inline"
-          selectedKeys={[location.pathname]}  // ✅ highlight đúng trang hiện tại
+          selectedKeys={[location.pathname]} 
           items={menuItems}
-          onClick={handleMenuClick}           // ✅ gắn sự kiện điều hướng
+          onClick={handleMenuClick}           
         />
       </Sider>
       <Layout>
