@@ -3,59 +3,31 @@ import { Table, Tag, Button, Space, Popconfirm } from 'antd';
 import { EditOutlined, DeleteOutlined } from '@ant-design/icons';
 
 const CustomerTable = (props) => {
-  const { dataSource, onEdit, onDelete, loading = false, pagination } = props;
+  const { dataSource, onEdit, onDelete, loading = false, pagination, status } = props;
 
-  const mockData = [
-    {
-      id: 1,
-      phone: '0901234567',
-      name: 'Nguyễn Văn A',
-      status: 'Hoạt động',
-      staff: 'admin (Ext 1001)'
-    },
-    {
-      id: 2,
-      phone: '0912345678',
-      name: 'Trần Thị B',
-      status: 'Chưa hoạt động',
-      staff: 'sale (Ext 1002)'
-    },
-       {
-      id: 1,
-      phone: '0901234567',
-      name: 'Nguyễn Văn A',
-      status: 'Hoạt động',
-      staff: 'admin (Ext 1001)'
-    },
-       {
-      id: 1,
-      phone: '0901234567',
-      name: 'Nguyễn Văn A',
-      status: 'Hoạt động',
-      staff: 'admin (Ext 1001)'
-    },
-       {
-      id: 1,
-      phone: '0901234567',
-      name: 'Nguyễn Văn A',
-      status: 'Hoạt động',
-      staff: 'admin (Ext 1001)'
-    },
-       {
-      id: 1,
-      phone: '0901234567',
-      name: 'Nguyễn Văn A',
-      status: 'Hoạt động',
-      staff: 'admin (Ext 1001)'
-    },
-       {
-      id: 1,
-      phone: '0901234567',
-      name: 'Nguyễn Văn A',
-      status: 'Hoạt động',
-      staff: 'admin (Ext 1001)'
-    },
+  const allMockData = [
+    { id: 1, phone: '0901234567', name: 'Nguyễn Văn A', status: 'Hoạt động', staff: 'admin (Ext 1001)' },
+    { id: 2, phone: '0912345678', name: 'Trần Thị B', status: 'Chưa hoạt động', staff: 'sale (Ext 1002)' },
+    { id: 3, phone: '0923456789', name: 'Lê Văn C', status: 'Hoạt động', staff: 'admin (Ext 1001)' },
+    { id: 4, phone: '0934567890', name: 'Phạm Thị D', status: 'Chưa hoạt động', staff: 'sale (Ext 1002)' },
+    { id: 5, phone: '0945678901', name: 'Hoàng Văn E', status: 'Hoạt động', staff: 'admin (Ext 1001)' },
   ];
+
+  const getFilteredData = () => {
+    if (dataSource) return dataSource;
+    
+    if (status) {
+      if (status === 'active') {
+        return allMockData.filter(item => item.status === 'Hoạt động');
+      } else if (status === 'inactive') {
+        return allMockData.filter(item => item.status === 'Chưa hoạt động');
+      }
+    }
+    
+    return allMockData;
+  };
+
+  const filteredData = getFilteredData();
 
   const columns = [
     {
@@ -79,12 +51,12 @@ const CustomerTable = (props) => {
       title: 'Trạng thái',
       dataIndex: 'status',
       key: 'status',
-      render: (status) => {
-        const isActive = status === 'Hoạt động';
+      render: (statusText) => {
+        const isActive = statusText === 'Hoạt động';
         return React.createElement(
           Tag,
           { color: isActive ? 'green' : 'orange' },
-          status
+          statusText
         );
       },
     },
@@ -135,7 +107,7 @@ const CustomerTable = (props) => {
 
   return React.createElement(Table, {
     columns,
-    dataSource: dataSource || mockData,
+    dataSource: filteredData,
     rowKey: 'id',
     loading,
     pagination: pagination || {
