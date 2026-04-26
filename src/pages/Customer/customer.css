@@ -1,6 +1,8 @@
 .container {
     background-color: white;
     padding: 20px;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .Title_callManagement {
@@ -13,4 +15,24 @@
 
 .Input_search {
     margin-bottom: 8px;
+}
+
+.Tabs {
+    width: 100%;
+}
+
+.Tabs .ant-tabs {
+    width: 100%;
+}
+
+.Tabs .ant-tabs-content-holder,
+.Tabs .ant-tabs-tabpane {
+    width: 100%;
+}
+
+.Tabs .customer-table,
+.Tabs .customer-table .ant-spin-nested-loading,
+.Tabs .customer-table .ant-spin-container,
+.Tabs .customer-table .ant-table-wrapper {
+    width: 100%;
 }

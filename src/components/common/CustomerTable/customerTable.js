@@ -3,7 +3,7 @@ import { Table, Tag, Button, Space, Popconfirm } from 'antd';
 import { EditOutlined, DeleteOutlined } from '@ant-design/icons';
 
 const CustomerTable = (props) => {
-  const { dataSource, onEdit, onDelete, loading = false, pagination, status } = props;
+  const { dataSource, onEdit, onDelete, loading = false, pagination, status, searchKeyword = '' } = props;
 
   const allMockData = [
     { id: 1, phone: '0901234567', name: 'Nguyễn Văn A', status: 'Hoạt động', staff: 'admin (Ext 1001)' },
@@ -15,7 +15,7 @@ const CustomerTable = (props) => {
 
   const getFilteredData = () => {
     if (dataSource) return dataSource;
-    
+
     if (status) {
       if (status === 'active') {
         return allMockData.filter(item => item.status === 'Hoạt động');
@@ -23,11 +23,21 @@ const CustomerTable = (props) => {
         return allMockData.filter(item => item.status === 'Chưa hoạt động');
       }
     }
-    
+
     return allMockData;
   };
 
-  const filteredData = getFilteredData();
+  const filteredData = getFilteredData().filter((item) => {
+    const keyword = searchKeyword.trim().toLowerCase();
+
+    if (!keyword) {
+      return true;
+    }
+
+    return [item.id, item.phone, item.name, item.status, item.staff].some(
+      (value) => value !== undefined && String(value).toLowerCase().includes(keyword)
+    );
+  });
 
   const columns = [
     {

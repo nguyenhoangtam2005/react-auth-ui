@@ -4,7 +4,7 @@ import { CopyOutlined } from "@ant-design/icons";
 
 const { TabPane } = Tabs;
 
-export default function CallTable() {
+export default function CallTable({ searchKeyword = '' }) {
   const [activeTab, setActiveTab] = useState("all");
 
   const data = [
@@ -113,13 +113,22 @@ export default function CallTable() {
     },
   ];
 
-  const filteredData =
+  const filteredByTab =
     activeTab === "all"
       ? data
       : data.filter((item) => item.status === activeTab);
 
+  const keyword = searchKeyword.trim().toLowerCase();
+  const filteredData = keyword
+    ? filteredByTab.filter((item) =>
+        [item.time, item.type, item.from, item.to, item.status, item.duration, item.callId].some(
+          (value) => value !== undefined && String(value).toLowerCase().includes(keyword)
+        )
+      )
+    : filteredByTab;
+
   return (
-    <div style={{width: '100%' }}>
+    <div style={{ width: '100%' }}>
       <Tabs defaultActiveKey="all" onChange={setActiveTab}>
         <TabPane tab="Tất cả (40)" key="all" />
         <TabPane tab="Hoàn thành (10)" key="Hoàn thành" />

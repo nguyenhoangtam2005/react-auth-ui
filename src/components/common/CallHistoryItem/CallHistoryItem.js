@@ -106,13 +106,27 @@ const data = [
   }
 ];
 
-const CallHistoryTable = () => {
+const CallHistoryTable = ({ directionFilter, searchKeyword }) => {
+  let filteredData = data;
+  if (directionFilter) {
+    filteredData = filteredData.filter((item) => item.direction === directionFilter);
+  }
+  if (searchKeyword && searchKeyword.trim() !== '') {
+    const keyword = searchKeyword.trim().toLowerCase();
+    filteredData = filteredData.filter(item =>
+      (item.time && item.time.toLowerCase().includes(keyword)) ||
+      (item.from && item.from.toLowerCase().includes(keyword)) ||
+      (item.to && item.to.toLowerCase().includes(keyword)) ||
+      (item.status && item.status.toLowerCase().includes(keyword)) ||
+      (item.callId && item.callId.toLowerCase().includes(keyword))
+    );
+  }
   return e(
     'div',
     { className: 'call-table-wrapper' },
     e(Table, {
       columns: columns,
-      dataSource: data,
+      dataSource: filteredData,
       pagination: false,
       bordered: false
     })

@@ -1,17 +1,20 @@
 import React from 'react';
 import { Select } from 'antd';
-const App = () => (
+
+const directionOptions = [
+  { value: null, label: 'Tất cả hướng' },
+  { value: 'outbound', label: 'Outbound' },
+  { value: 'inbound', label: 'Inbound' }
+];
+
+const FilterInput = ({ value, onChange }) => (
   <Select
-    placeholder="Select an option"
-    showSearch={{
-      optionFilterProp: ['label', 'otherField'],
-    }}
-    options={[
-      { value: 'a11', label: 'a11', otherField: 'c11' },
-      { value: 'b22', label: 'b22', otherField: 'b11' },
-      { value: 'c33', label: 'c33', otherField: 'b33' },
-      { value: 'd44', label: 'd44', otherField: 'd44' },
-    ]}
+    placeholder="Chọn hướng cuộc gọi"
+    style={{ minWidth: 160 }}
+    value={value}
+    onChange={onChange}
+    options={directionOptions}
   />
 );
-export default App;
+
+export default FilterInput;

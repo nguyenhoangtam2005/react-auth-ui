@@ -12,6 +12,7 @@ import {
   ClockCircleOutlined,
   VideoCameraOutlined,
   ContactsOutlined,
+  RobotOutlined 
 } from '@ant-design/icons';
 import Inputsearch from '../common/InputSearch/InputSearch';
 import Avatar from '../common/Avatar/avatar';
@@ -29,6 +30,7 @@ const menuItems = [
   { key: '/CallHistory', icon: <HistoryOutlined />, label: 'Lịch sử cuộc gọi' },
   { key: '/queue', icon: <ClockCircleOutlined />, label: 'Hàng chờ' },
   { key: '/MeetingRoom', icon: <VideoCameraOutlined />, label: 'Phòng họp' },
+  { key: '/AI_Analytics'  ,icon: <RobotOutlined />, label: 'Phân tích AI' },
 ];
 
 const defaultBreadcrumb = [

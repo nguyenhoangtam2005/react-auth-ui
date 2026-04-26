@@ -6,7 +6,7 @@ import {
   DeleteOutlined
 } from '@ant-design/icons';
 
-const UserTable = ({ role, status }) => {
+const UserTable = ({ role, status, searchKeyword = '' }) => {
 
   const mockData = [
     { id: 1, email: 'admin1@gmail.com', role: 'Admin', role_en: 'admin', code: 'ADM001', status: 'Hoạt động', status_en: 'active' },
@@ -50,6 +50,15 @@ const UserTable = ({ role, status }) => {
 
     if (status) {
       filtered = filtered.filter(item => item.status_en === status);
+    }
+
+    const keyword = searchKeyword.trim().toLowerCase();
+    if (keyword) {
+      filtered = filtered.filter((item) =>
+        [item.id, item.email, item.role, item.code, item.status].some(
+          (value) => value !== undefined && String(value).toLowerCase().includes(keyword)
+        )
+      );
     }
 
     return filtered;

@@ -9,6 +9,8 @@ import MachineBranch from './pages/MachineBranch/MachineBranch';
 import CallHistory from './pages/CallHistory/CallHistory';
 import QueueManagementPage from './pages/QueueManagementPage/QueueManagementPage';
 import MeetingRoom from './pages/MeetingRoom/MeetingRoom';
+import AIAnalytics from './pages/AI_Analytics/AI_Analytics';
+
 
 function App() {
   return (
@@ -64,6 +66,12 @@ function App() {
         <Route path="/MeetingRoom" element={
           <MainLayout>
             <MeetingRoom />
+          </MainLayout>
+        } />
+
+         <Route path="/AI_Analytics" element={
+          <MainLayout>
+            <AIAnalytics />
           </MainLayout>
         } />
       </Routes>

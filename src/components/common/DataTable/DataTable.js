@@ -1,6 +1,6 @@
 import React from 'react';
 import { Table, Tooltip } from 'antd';
-import InputSearch from '../InputSearch/InputSearch';
+
 const columns = [
   {
     title: 'Name',
@@ -36,7 +36,7 @@ const columns = [
       showTitle: false,
     },
     render: address => (
-            <Tooltip placement="topLeft" title={address}>
+      <Tooltip placement="topLeft" title={address}>
         {address}
       </Tooltip>
     ),
@@ -68,6 +68,7 @@ const columns = [
     ),
   },
 ];
+
 const data = [
   {
     key: '1',
@@ -88,5 +89,18 @@ const data = [
     address: 'Sydney No. 1 Lake Park, Sydney No. 1 Lake Park',
   },
 ];
-const App = () => <Table columns={columns} dataSource={data} />;
+
+const App = ({ searchKeyword = '' }) => {
+  const keyword = searchKeyword.trim().toLowerCase();
+  const filteredData = keyword
+    ? data.filter((item) =>
+        [item.name, item.age, item.address].some(
+          (value) => value !== undefined && String(value).toLowerCase().includes(keyword)
+        )
+      )
+    : data;
+
+  return <Table columns={columns} dataSource={filteredData} />;
+};
+
 export default App;

@@ -1,6 +1,7 @@
 import React from 'react';
 import Inputsearch from '../../components/common/InputSearch/InputSearch';
 import FillterInput from '../../components/common/FilterInput/FilterInput';
+import { useState } from 'react';
 import Tabs from '../../components/common/Tabs/tabs';
 import StatisticsCards from '../../components/common/StatisticsCards/StatisticsCards';
 import CallPad from '../../components/common/CallPad/CallPad';
@@ -10,6 +11,8 @@ import '../../components/layout/MainLayout.css';
 import './Users.css';
 
 function Users() {
+  const [directionFilter, setDirectionFilter] = useState(null);
+  const [searchKeyword, setSearchKeyword] = useState('');
   return (
     <div>
       <div className="body_content">
@@ -24,11 +27,11 @@ function Users() {
         <div className="tablehome">
           <h1 className="title_tablecalltoday">Cuộc gọi hôm nay</h1>
           <div className="inputseach_FillterInput">
-            <Inputsearch />
-            <FillterInput />
+            <Inputsearch onSearch={setSearchKeyword} />
+            <FillterInput value={directionFilter} onChange={setDirectionFilter} />
           </div>
           <Tabs />
-          <CallHistoryItem />
+          <CallHistoryItem directionFilter={directionFilter} searchKeyword={searchKeyword} />
         </div>
       </div>
     </div>

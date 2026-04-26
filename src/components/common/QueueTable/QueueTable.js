@@ -2,7 +2,7 @@ import React from "react";
 import { Table, Tag } from "antd";
 import "./QueueTable.css";
 
-const QueueTable = () => {
+const QueueTable = ({ statusFilter, searchKeyword }) => {
 
   const dataSource = [
     {
@@ -134,9 +134,22 @@ const QueueTable = () => {
     }
   ];
 
+  let filteredData = dataSource;
+  if (statusFilter) {
+    filteredData = filteredData.filter(item => item.status === statusFilter);
+  }
+  if (searchKeyword && searchKeyword.trim() !== '') {
+    const keyword = searchKeyword.trim().toLowerCase();
+    filteredData = filteredData.filter(item =>
+      (item.queueCode && item.queueCode.toLowerCase().includes(keyword)) ||
+      (item.extension && item.extension.toLowerCase().includes(keyword)) ||
+      (item.priority !== undefined && String(item.priority).includes(keyword)) ||
+      (item.status && item.status.toLowerCase().includes(keyword))
+    );
+  }
   return React.createElement(Table, {
     columns: columns,
-    dataSource: dataSource,
+    dataSource: filteredData,
     pagination: {
       pageSize: 10,
       showSizeChanger: true

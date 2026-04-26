@@ -1,7 +1,7 @@
 import React from 'react';
 import { Table, Tag } from 'antd';
 
-const MachineBranch = () => {
+const MachineBranch = ({ trangThaiFilter, dndFilter, hoatDongFilter, searchKeyword }) => {
   const dataSource = [
     { soNoiBo: 101, tenNhanh: 'Nhánh 101', trangThai: 'Online', dnd: 'Bật', loai: 'Cá nhân', chuCuocGoi: 'Tắt', hoatDong: 'Hoạt động' },
     { soNoiBo: 102, tenNhanh: 'Nhánh 102', trangThai: 'Offline', dnd: 'Tắt', loai: 'Service', chuCuocGoi: 'Tắt', hoatDong: 'Tạm khóa' },
@@ -47,15 +47,36 @@ const MachineBranch = () => {
     },
   ];
 
+  let filteredData = dataSource;
+  if (trangThaiFilter) {
+    filteredData = filteredData.filter(item => item.trangThai === trangThaiFilter);
+  }
+  if (dndFilter) {
+    filteredData = filteredData.filter(item => item.dnd === dndFilter);
+  }
+  if (hoatDongFilter) {
+    filteredData = filteredData.filter(item => item.hoatDong === hoatDongFilter);
+  }
+  if (searchKeyword && searchKeyword.trim() !== '') {
+    const keyword = searchKeyword.trim().toLowerCase();
+    filteredData = filteredData.filter(item =>
+      (item.soNoiBo && String(item.soNoiBo).toLowerCase().includes(keyword)) ||
+      (item.tenNhanh && item.tenNhanh.toLowerCase().includes(keyword)) ||
+      (item.trangThai && item.trangThai.toLowerCase().includes(keyword)) ||
+      (item.dnd && item.dnd.toLowerCase().includes(keyword)) ||
+      (item.loai && item.loai.toLowerCase().includes(keyword)) ||
+      (item.hoatDong && item.hoatDong.toLowerCase().includes(keyword))
+    );
+  }
   return (
     <Table
       style={{ width: '100%' }}
-      dataSource={dataSource}
+      dataSource={filteredData}
       columns={columns}
       pagination={{
         current: 1,
         pageSize: 10,
-        total: 50, // Tổng số bản ghi giả định, có thể thay bằng dữ liệu thật
+        total: filteredData.length,
         showSizeChanger: true,
         pageSizeOptions: ['10', '20', '50'],
         showTotal: (total, range) => `${range[0]}-${range[1]} / ${total} page`,

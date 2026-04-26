@@ -1,7 +1,7 @@
 import React from 'react';
 import { Table } from 'antd';
 
-const MeetingRoom = () => {
+const MeetingRoom = ({ searchKeyword = '' }) => {
   const dataSource = [
     { id: 'C001', titlePhong: '(Hỗ trợ phòng)', kpiPhong: 'Phòng 101', pile: 12345, dienVi: 2, chuanPhong: 'User #2' },
     { id: 'C002', titlePhong: '(Liên phòng họp)', kpiPhong: 'Phòng 102', pile: 23456, dienVi: 1, chuanPhong: 'User #1' },
@@ -15,6 +15,15 @@ const MeetingRoom = () => {
     { id: 'C010', titlePhong: '(Liên phòng họp)', kpiPhong: 'Phòng 110', pile: 56789, dienVi: 1, chuanPhong: 'User #5' },
   ];
 
+  const keyword = searchKeyword.trim().toLowerCase();
+  const filteredData = keyword
+    ? dataSource.filter((item) =>
+        [item.id, item.titlePhong, item.kpiPhong, item.pile, item.dienVi, item.chuanPhong].some(
+          (value) => value !== undefined && String(value).toLowerCase().includes(keyword)
+        )
+      )
+    : dataSource;
+
   const columns = [
     { title: 'ID', dataIndex: 'id', key: 'id', width: 80 },
     { title: 'Tên phòng', dataIndex: 'titlePhong', key: 'titlePhong' },
@@ -27,12 +36,12 @@ const MeetingRoom = () => {
   return (
     <Table
       style={{ width: '100%' }}
-      dataSource={dataSource}
+      dataSource={filteredData}
       columns={columns}
       pagination={{
         current: 1,
         pageSize: 10,
-        total: 50,
+        total: filteredData.length,
         showSizeChanger: true,
         pageSizeOptions: ['10', '20', '50'],
         showTotal: (total, range) => `${range[0]}-${range[1]} / ${total} page`,

@@ -1,27 +1,22 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './CallHistory.css';
 import TableHisstory from '../../components/common/TableCallHistory/TableCallHistory';
 import Inputsearch from '../../components/common/InputSearch/InputSearch';
-import Dropsdown from '../../components/common/Dropdown/dropdown';
-import Tabs from '../../components/common/Tabs/tabs';
-
 function CallHistory() {
+  const [searchKeyword, setSearchKeyword] = useState('');
+
   return (
     <div>
-      <h1>Lịch sử cuộc gọi</h1>
       <div className="body_content">
-       <div className='search_filtermenu'>
-        <Inputsearch></Inputsearch>
-        <div className="Dropsdown">
-        <Dropsdown></Dropsdown>
-        <Dropsdown></Dropsdown>
+        <h1>Lịch sử cuộc gọi</h1>
+        <div className='search_filtermenu'>
+          <Inputsearch onSearch={setSearchKeyword} value={searchKeyword}></Inputsearch>
         </div>
+        <div className="tabmenu">
+        </div>
+        <TableHisstory searchKeyword={searchKeyword}></TableHisstory>
       </div>
-      <div className="tabmenu">
-      </div>
-        <TableHisstory></TableHisstory>
-      </div>
-      </div>
+    </div>
   );
 }
 
